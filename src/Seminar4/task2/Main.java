@@ -4,7 +4,8 @@ import java.util.Objects;
 
 public class Main {
     public static void main(String[] args) {
-       Object [][] check = {
+        // Массив для проверки работы системы
+        Object [][] check = {
                {buyers[0], products[0],20},
                {buyers[0], products[0],-40},
                {buyers[0], products[0],180},
@@ -15,6 +16,7 @@ public class Main {
        int tmp = 0;
        int i =0;
 
+        // Логика проверки работы
        while(tmp != orders.length -1 || i != check.length){
            try {
                 orders[tmp] = buy((Buyer) check[i][0],(Product) check[i][1],(int) check[i][2]);
@@ -37,11 +39,12 @@ public class Main {
 
        }
     }
-
+    // массив покупателей
     private final static Buyer[] buyers = {
             new Buyer("Petr", 25, 4477),
             new Buyer("Tom", 30, 5555)
     };
+    // массив продуктов
     private final static Product[] products = {
             new Product("Bread", 15),
             new Product("Milk", 10),
@@ -51,16 +54,38 @@ public class Main {
     };
     private final static Order[] orders = new Order[5];
 
+    /**
+     * Метод проверки на наличие подаваемого объекта класса Buyer в массиве
+     * @param array массив покупателей
+     * @param o объект класса Buyer
+     * @return результат проверки есть ли объект в массиве
+     */
     private static boolean isInArrayBuyer(Buyer[] array, Buyer o) {
         for (int i = 0; i < array.length; i++)
             if (array[i].equals(o)) return true;
         return false;
+
    }
+    /**
+     * Метод проверки на наличие подаваемого объекта класса Product в массиве
+     * @param array массив продуктов
+     * @param o объект класса Product
+     * @return результат проверки есть ли объект в массиве
+     */
     private static boolean isInArrayProduct(Product[] array, Product o) {
         for (int i = 0; i < array.length; i++)
             if (array[i].equals(o)) return true;
         return false;
     }
+
+    /**
+     * Операция покупки
+     * @param buyer покупатель
+     * @param product продукт
+     * @param count количество
+     * @return результат работы
+     */
+
    public static Order buy (Buyer buyer, Product product,int count){
         if(!isInArrayBuyer(buyers, buyer)){
             throw new BuyerException("Неизвестный покупатель, точно вор!");
