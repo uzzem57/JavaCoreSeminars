@@ -9,7 +9,7 @@ public class passwordCheck {
         if (countLogin >=20){
             throw new WrongLoginException(countLogin);
         }
-        else if (countLogin < 20 || check == false){
+        else if (countPassword >= 20 || !check ){
             throw new WrongPassswordException(countPassword, check);
         }
         else {
