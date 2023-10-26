@@ -1,6 +1,13 @@
 package Seminar4.task1;
 
 public class PasswordCheck {
+    /**\
+     * метод проверки соответствеия логина и пароля заданным условиям
+     * @param login логин
+     * @param password пароль
+     * @param confirmPassword подтверждение пароля
+     * @return результат работы метода
+     */
     public static boolean passwordCheck( String login, String password, String confirmPassword ){
         boolean check = password.equals(confirmPassword);
         int countLogin = login.length();
