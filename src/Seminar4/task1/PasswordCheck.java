@@ -1,6 +1,6 @@
 package Seminar4.task1;
 
-public class passwordCheck {
+public class PasswordCheck {
     public static boolean passwordCheck( String login, String password, String confirmPassword ){
         boolean check = password.equals(confirmPassword);
         int countLogin = login.length();
